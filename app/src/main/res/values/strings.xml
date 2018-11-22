@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">Football Club</string>
+    <string name="menu_match">Matches</string>
+    <string name="menu_team">Teams</string>
+    <string name="menu_fav">Favorites</string>
+    <string name="schedules_vs">vs</string>
+    <string name="match_goals">Goals</string>
+    <string name="match_shots">Shots</string>
+    <string name="match_lineups">Lineups</string>
+    <string name="match_goalkeeper">Goalkeeper</string>
+    <string name="match_defender">Defender</string>
+    <string name="match_midfielder">Midfielder</string>
+    <string name="match_forwarder">Forwarder</string>
+    <string name="match_substitutes">Substitutes</string>
+    <string name="menu_favorite">Favorite</string>
+    <string name="match_added_to_fav">Added to favorites</string>
+    <string name="match_removed_from_fav">Removed from favorites</string>
+    <string name="match_error_fav">Error processing favorites</string>
+    <string name="menu_search">Search</string>
+    <string name="cd_logo">Logo</string>
+    <string name="player_weight_kg">Weight (Kg)</string>
+    <string name="player_height_m">Height (m)</string>
+</resources>
