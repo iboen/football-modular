@@ -1,10 +1,10 @@
 package id.gits.football.players
 
 import android.os.Bundle
-import android.support.v4.app.Fragment
-import android.support.v4.widget.SwipeRefreshLayout
-import android.support.v7.widget.LinearLayoutManager
-import android.support.v7.widget.RecyclerView
+import androidx.fragment.app.Fragment
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -19,10 +19,10 @@ import org.jetbrains.anko.support.v4.swipeRefreshLayout
 import org.jetbrains.anko.support.v4.toast
 import org.jetbrains.anko.startActivity
 
-class PlayersFragment : Fragment(), PlayersContract.View {
+class PlayersFragment : androidx.fragment.app.Fragment(), PlayersContract.View {
     override lateinit var presenter: PlayersContract.Presenter
 
-    private lateinit var swipeLayout: SwipeRefreshLayout
+    private lateinit var swipeLayout: androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 
     private val items: ArrayList<Player> = arrayListOf()
 
@@ -38,11 +38,11 @@ class PlayersFragment : Fragment(), PlayersContract.View {
             }
         })
 
-        with(view.findViewById<RecyclerView>(PlayersFragmentUI.recyclerViewId)) {
+        with(view.findViewById<androidx.recyclerview.widget.RecyclerView>(PlayersFragmentUI.recyclerViewId)) {
             adapter = listAdapter
         }
 
-        with(view.findViewById<SwipeRefreshLayout>(PlayersFragmentUI.swipeRefreshId)) {
+        with(view.findViewById<androidx.swiperefreshlayout.widget.SwipeRefreshLayout>(PlayersFragmentUI.swipeRefreshId)) {
             swipeLayout = this
             setOnRefreshListener { presenter.getPlayers() }
         }
@@ -91,19 +91,19 @@ class PlayersFragment : Fragment(), PlayersContract.View {
                 }
     }
 
-    class PlayersFragmentUI : AnkoComponent<Fragment> {
+    class PlayersFragmentUI : AnkoComponent<androidx.fragment.app.Fragment> {
         companion object {
             const val swipeRefreshId = 1
             const val recyclerViewId = 2
         }
 
-        override fun createView(ui: AnkoContext<Fragment>) = with(ui) {
+        override fun createView(ui: AnkoContext<androidx.fragment.app.Fragment>) = with(ui) {
             swipeRefreshLayout {
                 id = PlayersFragmentUI.swipeRefreshId
 
                 recyclerView {
                     id = PlayersFragmentUI.recyclerViewId
-                    layoutManager = LinearLayoutManager(context)
+                    layoutManager = androidx.recyclerview.widget.LinearLayoutManager(context)
                 }
             }
         }

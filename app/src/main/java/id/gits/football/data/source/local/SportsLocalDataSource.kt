@@ -1,7 +1,7 @@
 package id.gits.football.data.source.local
 
 import android.content.Context
-import android.support.annotation.VisibleForTesting
+import androidx.annotation.VisibleForTesting
 import com.google.gson.Gson
 import id.gits.football.data.Match
 import id.gits.football.data.Team

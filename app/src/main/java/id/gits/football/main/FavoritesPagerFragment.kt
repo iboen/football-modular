@@ -4,11 +4,11 @@ import android.content.Context
 import android.content.res.ColorStateList
 import android.graphics.Color
 import android.os.Bundle
-import android.support.design.widget.TabLayout
-import android.support.v4.app.Fragment
-import android.support.v4.app.FragmentManager
-import android.support.v4.app.FragmentStatePagerAdapter
-import android.support.v4.view.ViewPager
+import com.google.android.material.tabs.TabLayout
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
+import androidx.fragment.app.FragmentStatePagerAdapter
+import androidx.viewpager.widget.ViewPager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -24,18 +24,18 @@ import org.jetbrains.anko.support.v4.ctx
 import org.jetbrains.anko.support.v4.viewPager
 import id.gits.football.R
 
-class FavoritesPagerFragment : Fragment() {
-    private lateinit var viewPager: ViewPager
+class FavoritesPagerFragment : androidx.fragment.app.Fragment() {
+    private lateinit var viewPager: androidx.viewpager.widget.ViewPager
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view = FavoritesPagerFragmentUI().createView(AnkoContext.create(ctx, this))
 
-        with(view.findViewById<ViewPager>(FavoritesPagerFragmentUI.viewPagerId)) {
+        with(view.findViewById<androidx.viewpager.widget.ViewPager>(FavoritesPagerFragmentUI.viewPagerId)) {
             viewPager = this
             adapter = PagerAdapter(ctx, activity?.supportFragmentManager)
         }
 
-        with(view.findViewById<TabLayout>(FavoritesPagerFragmentUI.tabLayoutId)) {
+        with(view.findViewById<com.google.android.material.tabs.TabLayout>(FavoritesPagerFragmentUI.tabLayoutId)) {
             setupWithViewPager(viewPager)
         }
 
@@ -47,13 +47,13 @@ class FavoritesPagerFragment : Fragment() {
         fun newInstance() = FavoritesPagerFragment()
     }
 
-    class FavoritesPagerFragmentUI : AnkoComponent<Fragment> {
+    class FavoritesPagerFragmentUI : AnkoComponent<androidx.fragment.app.Fragment> {
         companion object {
             const val tabLayoutId = 1
             const val viewPagerId = 2
         }
 
-        override fun createView(ui: AnkoContext<Fragment>) = with(ui) {
+        override fun createView(ui: AnkoContext<androidx.fragment.app.Fragment>) = with(ui) {
             verticalLayout {
                 tabLayout {
                     id = tabLayoutId
@@ -76,8 +76,8 @@ class FavoritesPagerFragment : Fragment() {
         }
     }
 
-    class PagerAdapter(val ctx: Context, fm: FragmentManager?) : FragmentStatePagerAdapter(fm) {
-        override fun getItem(position: Int): Fragment {
+    class PagerAdapter(val ctx: Context, fm: androidx.fragment.app.FragmentManager?) : androidx.fragment.app.FragmentStatePagerAdapter(fm) {
+        override fun getItem(position: Int): androidx.fragment.app.Fragment {
 
             return when (position) {
                 0 -> MatchesFragment.newInstance(MainActivity.TYPE.FAV).also {

@@ -1,6 +1,6 @@
 package id.gits.football.main.teams
 
-import android.support.v7.widget.RecyclerView
+import androidx.recyclerview.widget.RecyclerView
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Filter
@@ -14,7 +14,7 @@ import kotlinx.android.synthetic.main.teams_row.view.*
 import org.jetbrains.anko.layoutInflater
 
 class TeamsAdapter(var list: List<Team>, private val itemListener: TeamItemListener)
-    : RecyclerView.Adapter<TeamsAdapter.ClubViewHolder>(), Filterable {
+    : androidx.recyclerview.widget.RecyclerView.Adapter<TeamsAdapter.ClubViewHolder>(), Filterable {
     private var listFiltered: List<Team> = list
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ClubViewHolder {
@@ -73,7 +73,7 @@ class TeamsAdapter(var list: List<Team>, private val itemListener: TeamItemListe
         }
     }
 
-    inner class ClubViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    inner class ClubViewHolder(itemView: View) : androidx.recyclerview.widget.RecyclerView.ViewHolder(itemView) {
 
         var ivLogo: ImageView = itemView.ivLogo
         var tvName: TextView = itemView.tvName

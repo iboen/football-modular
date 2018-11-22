@@ -1,16 +1,16 @@
 package id.gits.football.utils
 
-import android.support.annotation.IdRes
-import android.support.v4.app.Fragment
-import android.support.v4.app.FragmentManager
-import android.support.v4.app.FragmentTransaction
-import android.support.v7.app.AppCompatActivity
+import androidx.annotation.IdRes
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
+import androidx.fragment.app.FragmentTransaction
+import androidx.appcompat.app.AppCompatActivity
 
 /**
  * The `fragment` is added to the container view with id `frameId`. The operation is
  * performed by the `fragmentManager`.
  */
-fun AppCompatActivity.replaceFragmentInActivity(fragment: Fragment, @IdRes frameId: Int) {
+fun AppCompatActivity.replaceFragmentInActivity(fragment: androidx.fragment.app.Fragment, @IdRes frameId: Int) {
     supportFragmentManager.transact {
         replace(frameId, fragment)
     }
@@ -19,7 +19,7 @@ fun AppCompatActivity.replaceFragmentInActivity(fragment: Fragment, @IdRes frame
 /**
  * Runs a FragmentTransaction, then calls commit().
  */
-private inline fun FragmentManager.transact(action: FragmentTransaction.() -> Unit) {
+private inline fun androidx.fragment.app.FragmentManager.transact(action: androidx.fragment.app.FragmentTransaction.() -> Unit) {
     beginTransaction().apply {
         action()
     }.commit()

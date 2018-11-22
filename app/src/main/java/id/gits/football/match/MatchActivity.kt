@@ -1,7 +1,7 @@
 package id.gits.football.match
 
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 import id.gits.football.Injection
 import id.gits.football.data.Match
 import id.gits.football.utils.replaceFragmentInActivity

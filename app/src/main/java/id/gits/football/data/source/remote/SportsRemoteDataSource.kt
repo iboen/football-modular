@@ -1,6 +1,6 @@
 package id.gits.football.data.source.remote
 
-import android.support.annotation.VisibleForTesting
+import androidx.annotation.VisibleForTesting
 import id.gits.football.BuildConfig
 import id.gits.football.data.Match
 import id.gits.football.data.Team

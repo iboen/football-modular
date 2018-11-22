@@ -6,11 +6,11 @@ import android.content.Intent
 import android.content.res.ColorStateList
 import android.graphics.Color
 import android.os.Bundle
-import android.support.annotation.VisibleForTesting
-import android.support.design.widget.BottomNavigationView
-import android.support.v4.app.Fragment
-import android.support.v7.app.AppCompatActivity
-import android.support.v7.widget.SearchView
+import androidx.annotation.VisibleForTesting
+import com.google.android.material.bottomnavigation.BottomNavigationView
+import androidx.fragment.app.Fragment
+import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.SearchView
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
@@ -37,9 +37,9 @@ class MainActivity : AppCompatActivity() {
     private val menuFav = 3
 
     private lateinit var searchView: SearchView
-    private lateinit var bottomNavigationView: BottomNavigationView
+    private lateinit var bottomNavigationView: com.google.android.material.bottomnavigation.BottomNavigationView
 
-    private var selectedFragment: Fragment? = null
+    private var selectedFragment: androidx.fragment.app.Fragment? = null
 
     val countingIdlingResource: IdlingResource
         @VisibleForTesting
@@ -129,7 +129,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun initBottomBar() {
-        with(findViewById<BottomNavigationView>(MainActivityUI.navigationView)) {
+        with(findViewById<com.google.android.material.bottomnavigation.BottomNavigationView>(MainActivityUI.navigationView)) {
             bottomNavigationView = this
             menu.add(Menu.NONE, menuMatch, Menu.NONE, R.string.menu_match).setIcon(R.drawable.ic_baseline_calendar)
             menu.add(Menu.NONE, menuTeam, Menu.NONE, R.string.menu_team).setIcon(R.drawable.ic_soccer_ball)
