@@ -1,21 +1,21 @@
 package id.gits.football.match
 
 import android.graphics.Typeface
-import androidx.fragment.app.Fragment
+import android.support.v4.app.Fragment
 import android.view.Gravity
 import id.gits.football.R
 import id.gits.football.data.Match
 import org.jetbrains.anko.*
 import org.jetbrains.anko.support.v4.swipeRefreshLayout
 
-class MatchFragmentUI constructor(var match: Match?) : AnkoComponent<androidx.fragment.app.Fragment> {
+class MatchFragmentUI constructor(var match: Match?) : AnkoComponent<Fragment> {
     companion object {
         const val homeLogoId = 1
         const val awayLogoId = 2
         const val swipeId = 3
     }
 
-    override fun createView(ui: AnkoContext<androidx.fragment.app.Fragment>) = with(ui) {
+    override fun createView(ui: AnkoContext<Fragment>) = with(ui) {
         swipeRefreshLayout {
             id = swipeId
 

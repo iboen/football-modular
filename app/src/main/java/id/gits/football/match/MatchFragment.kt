@@ -1,8 +1,8 @@
 package id.gits.football.match
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
-import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+import android.support.v4.app.Fragment
+import android.support.v4.widget.SwipeRefreshLayout
 import android.view.*
 import android.widget.ImageView
 import com.squareup.picasso.Picasso
@@ -16,11 +16,11 @@ import org.jetbrains.anko.support.v4.act
 import org.jetbrains.anko.support.v4.ctx
 import org.jetbrains.anko.support.v4.toast
 
-class MatchFragment : androidx.fragment.app.Fragment(), MatchContract.View {
+class MatchFragment : Fragment(), MatchContract.View {
 
     override lateinit var presenter: MatchContract.Presenter
 
-    private lateinit var swipeRefreshLayout: androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+    private lateinit var swipeRefreshLayout: SwipeRefreshLayout
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,7 +31,7 @@ class MatchFragment : androidx.fragment.app.Fragment(), MatchContract.View {
         val match = arguments?.get(ARGUMENT_MATCH) as Match
         val view = MatchFragmentUI(match).createView(AnkoContext.create(ctx, this))
 
-        with(view.findViewById<androidx.swiperefreshlayout.widget.SwipeRefreshLayout>(MatchFragmentUI.swipeId)) {
+        with(view.findViewById<SwipeRefreshLayout>(MatchFragmentUI.swipeId)) {
             swipeRefreshLayout = this
             setOnRefreshListener { presenter.getClub() }
         }

@@ -1,6 +1,6 @@
 package id.gits.football.players
 
-import androidx.recyclerview.widget.RecyclerView
+import android.support.v7.widget.RecyclerView
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
@@ -11,7 +11,7 @@ import id.gits.football.data.Player
 import kotlinx.android.synthetic.main.players_row.view.*
 import org.jetbrains.anko.layoutInflater
 
-class PlayersAdapter(var list: List<Player>, private val itemListener: PlayerItemListener) : androidx.recyclerview.widget.RecyclerView.Adapter<PlayersAdapter.ClubViewHolder>() {
+class PlayersAdapter(var list: List<Player>, private val itemListener: PlayerItemListener) : RecyclerView.Adapter<PlayersAdapter.ClubViewHolder>() {
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ClubViewHolder {
@@ -39,7 +39,7 @@ class PlayersAdapter(var list: List<Player>, private val itemListener: PlayerIte
         return list.size
     }
 
-    inner class ClubViewHolder(itemView: View) : androidx.recyclerview.widget.RecyclerView.ViewHolder(itemView) {
+    inner class ClubViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
         var ivLogo: ImageView = itemView.ivLogo
         var tvName: TextView = itemView.tvName

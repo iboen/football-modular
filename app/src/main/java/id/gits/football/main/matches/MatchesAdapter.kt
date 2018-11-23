@@ -1,6 +1,6 @@
 package id.gits.football.main.matches
 
-import androidx.recyclerview.widget.RecyclerView
+import android.support.v7.widget.RecyclerView
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Filter
@@ -14,7 +14,7 @@ import org.jetbrains.anko.backgroundColorResource
 import org.jetbrains.anko.layoutInflater
 
 class MatchesAdapter(var list: List<Match>, private val itemListener: ScheduleItemListener)
-    : androidx.recyclerview.widget.RecyclerView.Adapter<MatchesAdapter.ClubViewHolder>(), Filterable {
+    : RecyclerView.Adapter<MatchesAdapter.ClubViewHolder>(), Filterable {
 
     private var listFiltered: List<Match> = list
 
@@ -86,7 +86,7 @@ class MatchesAdapter(var list: List<Match>, private val itemListener: ScheduleIt
         }
     }
 
-    inner class ClubViewHolder(itemView: View) : androidx.recyclerview.widget.RecyclerView.ViewHolder(itemView) {
+    inner class ClubViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
         var tvDate: TextView = itemView.tvDate
         var tvHomeName: TextView = itemView.tvHomeName

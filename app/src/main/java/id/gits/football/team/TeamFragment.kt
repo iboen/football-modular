@@ -2,9 +2,9 @@ package id.gits.football.team
 
 import android.content.Context
 import android.os.Bundle
-import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentManager
-import androidx.fragment.app.FragmentStatePagerAdapter
+import android.support.v4.app.Fragment
+import android.support.v4.app.FragmentManager
+import android.support.v4.app.FragmentStatePagerAdapter
 import android.view.*
 import com.squareup.picasso.Picasso
 import id.gits.football.Injection
@@ -20,7 +20,7 @@ import org.jetbrains.anko.support.v4.act
 import org.jetbrains.anko.support.v4.ctx
 import org.jetbrains.anko.support.v4.toast
 
-class TeamFragment : androidx.fragment.app.Fragment(), TeamContract.View {
+class TeamFragment : Fragment(), TeamContract.View {
 
     override lateinit var presenter: TeamContract.Presenter
 
@@ -133,8 +133,8 @@ class TeamFragment : androidx.fragment.app.Fragment(), TeamContract.View {
                 }
     }
 
-    class PagerAdapter(val ctx: Context, fm: androidx.fragment.app.FragmentManager?, val team: Team) : androidx.fragment.app.FragmentStatePagerAdapter(fm) {
-        override fun getItem(position: Int): androidx.fragment.app.Fragment {
+    class PagerAdapter(val ctx: Context, fm: FragmentManager?, val team: Team) : FragmentStatePagerAdapter(fm) {
+        override fun getItem(position: Int): Fragment {
 
             return when (position) {
                 0 -> TeamOverviewFragment.newInstance(team)

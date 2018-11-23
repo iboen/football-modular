@@ -3,10 +3,10 @@ package id.gits.football.main.matches
 import android.content.Intent
 import android.os.Bundle
 import android.provider.CalendarContract
-import androidx.fragment.app.Fragment
-import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
+import android.support.v4.app.Fragment
+import android.support.v4.widget.SwipeRefreshLayout
+import android.support.v7.widget.LinearLayoutManager
+import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -30,10 +30,10 @@ import id.gits.football.utils.PrefHelper
 import java.util.*
 
 
-class MatchesFragment : androidx.fragment.app.Fragment(), MatchesContract.View {
+class MatchesFragment : Fragment(), MatchesContract.View {
     override lateinit var presenter: MatchesContract.Presenter
 
-    private lateinit var swipeLayout: androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+    private lateinit var swipeLayout: SwipeRefreshLayout
 
     val items: ArrayList<Match> = arrayListOf()
 
@@ -55,11 +55,11 @@ class MatchesFragment : androidx.fragment.app.Fragment(), MatchesContract.View {
             }
         })
 
-        with(view.findViewById<androidx.recyclerview.widget.RecyclerView>(MatchesFragment.MatchesFragmentUI.recyclerViewId)) {
+        with(view.findViewById<RecyclerView>(MatchesFragment.MatchesFragmentUI.recyclerViewId)) {
             adapter = listAdapter
         }
 
-        with(view.findViewById<androidx.swiperefreshlayout.widget.SwipeRefreshLayout>(MatchesFragmentUI.swipeRefreshId)) {
+        with(view.findViewById<SwipeRefreshLayout>(MatchesFragmentUI.swipeRefreshId)) {
             swipeLayout = this
             setOnRefreshListener { presenter.getMatches() }
         }
@@ -187,14 +187,14 @@ class MatchesFragment : androidx.fragment.app.Fragment(), MatchesContract.View {
                 }
     }
 
-    class MatchesFragmentUI : AnkoComponent<androidx.fragment.app.Fragment> {
+    class MatchesFragmentUI : AnkoComponent<Fragment> {
         companion object {
             const val swipeRefreshId = 1
             const val recyclerViewId = 2
             const val leagueSpinnerId = 3
         }
 
-        override fun createView(ui: AnkoContext<androidx.fragment.app.Fragment>) = with(ui) {
+        override fun createView(ui: AnkoContext<Fragment>) = with(ui) {
             verticalLayout {
                 spinner {
                     id = leagueSpinnerId
@@ -209,7 +209,7 @@ class MatchesFragment : androidx.fragment.app.Fragment(), MatchesContract.View {
 
                     recyclerView {
                         id = recyclerViewId
-                        layoutManager = androidx.recyclerview.widget.LinearLayoutManager(context)
+                        layoutManager = LinearLayoutManager(context)
                     }
                 }
             }

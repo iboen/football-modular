@@ -1,7 +1,7 @@
 package id.gits.football.player
 
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
+import android.support.v7.app.AppCompatActivity
 import id.gits.football.data.Player
 import id.gits.football.utils.replaceFragmentInActivity
 import org.jetbrains.anko.AnkoComponent

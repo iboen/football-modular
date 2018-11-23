@@ -1,7 +1,7 @@
 package id.gits.football.team
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
+import android.support.v4.app.Fragment
 import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
@@ -11,7 +11,7 @@ import org.jetbrains.anko.*
 import org.jetbrains.anko.support.v4.ctx
 import org.jetbrains.anko.support.v4.nestedScrollView
 
-class TeamOverviewFragment : androidx.fragment.app.Fragment() {
+class TeamOverviewFragment : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val team = arguments?.get(ARGUMENT_TEAM) as Team
@@ -31,8 +31,8 @@ class TeamOverviewFragment : androidx.fragment.app.Fragment() {
                 }
     }
 
-    class TeamOverviewFragmentUI constructor(var team: Team?) : AnkoComponent<androidx.fragment.app.Fragment> {
-        override fun createView(ui: AnkoContext<androidx.fragment.app.Fragment>) = with(ui) {
+    class TeamOverviewFragmentUI constructor(var team: Team?) : AnkoComponent<Fragment> {
+        override fun createView(ui: AnkoContext<Fragment>) = with(ui) {
             nestedScrollView {
                 verticalLayout {
                     lparams(matchParent, matchParent)

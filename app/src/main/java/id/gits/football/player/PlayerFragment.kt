@@ -1,7 +1,7 @@
 package id.gits.football.player
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
+import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,7 +11,7 @@ import id.gits.football.data.Player
 import kotlinx.android.synthetic.main.player_fragment.*
 import org.jetbrains.anko.support.v4.toast
 
-class PlayerFragment : androidx.fragment.app.Fragment(), PlayerContract.View {
+class PlayerFragment : Fragment(), PlayerContract.View {
 
     override lateinit var presenter: PlayerContract.Presenter
 
