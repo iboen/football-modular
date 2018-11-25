@@ -20,4 +20,5 @@
     <string name="cd_logo">Logo</string>
     <string name="player_weight_kg">Weight (Kg)</string>
     <string name="player_height_m">Height (m)</string>
+    <string name="title_team">Team Detail</string>
 </resources>

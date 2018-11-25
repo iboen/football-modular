@@ -32,19 +32,6 @@
         </activity>
 
         <activity
-            android:name="id.gits.football.team.TeamActivity"
-            android:parentActivityName="id.gits.football.main.MainActivity">
-            <!-- Parent activity meta-data to support 4.0 and lower -->
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="id.gits.football.main.MainActivity" />
-
-            <intent-filter>
-                <action android:name="android.intent.action.VIEW" />
-            </intent-filter>
-        </activity>
-
-        <activity
             android:name="id.gits.football.player.PlayerActivity"
             android:parentActivityName="id.gits.football.team.TeamActivity">
             <!-- Parent activity meta-data to support 4.0 and lower -->

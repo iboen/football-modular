@@ -8,8 +8,7 @@ import android.support.v4.app.FragmentStatePagerAdapter
 import android.view.*
 import com.squareup.picasso.Picasso
 import id.gits.football.Injection
-import id.gits.football.R
-import id.gits.football.R.menu.menu_details
+import id.gits.football.R as appR
 import id.gits.football.data.Team
 import id.gits.football.players.PlayersFragment
 import id.gits.football.players.PlayersPresenter
@@ -53,16 +52,16 @@ class TeamFragment : Fragment(), TeamContract.View {
         if (!team.strTeamLogo.isNullOrEmpty()) {
             Picasso.get()
                     .load(team.strTeamLogo)
-                    .placeholder(R.mipmap.ic_launcher)
-                    .error(R.color.colorError)
+                    .placeholder(appR.mipmap.ic_launcher)
+                    .error(appR.color.colorError)
                     .into(teamIvLogo)
         }
 
         if (!team.strStadiumThumb.isNullOrEmpty()) {
             Picasso.get()
                     .load(team.strStadiumThumb)
-                    .placeholder(R.color.colorBackgroundGrey)
-                    .error(R.color.colorError)
+                    .placeholder(appR.color.colorBackgroundGrey)
+                    .error(appR.color.colorError)
                     .into(teamIvStadium)
         }
     }
@@ -78,19 +77,19 @@ class TeamFragment : Fragment(), TeamContract.View {
     }
 
     override fun showAddFavoriteSuccess() {
-        view?.let { snackbar(it, getString(R.string.match_added_to_fav)) }
+        view?.let { snackbar(it, getString(appR.string.match_added_to_fav)) }
     }
 
     override fun showRemoveFavoriteSuccess() {
-        view?.let { snackbar(it, getString(R.string.match_removed_from_fav)) }
+        view?.let { snackbar(it, getString(appR.string.match_removed_from_fav)) }
     }
 
     override fun showToggleFavoriteError() {
-        view?.let { snackbar(it, getString(R.string.match_error_fav)) }
+        view?.let { snackbar(it, getString(appR.string.match_error_fav)) }
     }
 
     override fun onCreateOptionsMenu(menu: Menu?, inflater: MenuInflater?) {
-        inflater?.inflate(menu_details, menu)
+        inflater?.inflate(appR.menu.menu_details, menu)
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
@@ -99,7 +98,7 @@ class TeamFragment : Fragment(), TeamContract.View {
                 activity?.finish()
                 true
             }
-            R.id.add_to_favorite -> {
+            appR.id.add_to_favorite -> {
                 if (presenter.isFavorite()) presenter.removeFromFavorite() else presenter.addToFavorite()
                 true
             }
@@ -109,11 +108,11 @@ class TeamFragment : Fragment(), TeamContract.View {
     }
 
     override fun onPrepareOptionsMenu(menu: Menu?) {
-        menu?.findItem(R.id.add_to_favorite).apply {
+        menu?.findItem(appR.id.add_to_favorite).apply {
             if (presenter.isFavorite()) {
-                this?.setIcon(R.drawable.ic_added_to_favorite)
+                this?.setIcon(appR.drawable.ic_added_to_favorite)
             } else {
-                this?.setIcon(R.drawable.ic_add_to_favorite)
+                this?.setIcon(appR.drawable.ic_add_to_favorite)
             }
         }
     }

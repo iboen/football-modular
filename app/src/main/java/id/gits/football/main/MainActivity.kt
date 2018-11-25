@@ -75,7 +75,7 @@ class MainActivity : AppCompatActivity() {
             false
         }
 
-        searchView.setOnQueryTextFocusChangeListener { v, hasFocus ->
+        searchView.setOnQueryTextFocusChangeListener { _, hasFocus ->
             run {
                 if (hasFocus) {
                     bottomNavigationView.visibility = View.GONE

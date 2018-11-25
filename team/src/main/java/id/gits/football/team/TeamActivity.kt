@@ -4,8 +4,8 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import id.gits.football.Injection
 import id.gits.football.data.Team
-import id.gits.football.utils.replaceFragmentInActivity
 import id.gits.football.utils.ActivityHelper
+import id.gits.football.utils.replaceFragmentInActivity
 import org.jetbrains.anko.*
 
 class TeamActivity : AppCompatActivity() {

@@ -1,5 +1,6 @@
 package id.gits.football.main.teams
 
+import android.content.Intent
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v4.widget.SwipeRefreshLayout
@@ -13,7 +14,6 @@ import android.widget.ArrayAdapter
 import android.widget.Spinner
 import id.gits.football.data.League
 import id.gits.football.data.Team
-import id.gits.football.team.TeamActivity
 import id.gits.football.utils.PrefHelper
 import id.gits.football.utils.SearchEvent
 import org.greenrobot.eventbus.EventBus
@@ -137,7 +137,11 @@ class TeamsFragment : Fragment(), TeamsContract.View {
     }
 
     override fun showTeamDetailUi(team: Team) {
-        context?.startActivity<TeamActivity>(ActivityHelper.Team.EXTRA_TEAM to team)
+        val intent = Intent()
+        intent.putExtra(ActivityHelper.Team.EXTRA_TEAM, team)
+        intent.setClassName(ActivityHelper.PACKAGE_NAME, ActivityHelper.Team.className)
+        context?.startActivity(intent)
+//        context?.startActivity<TeamActivity>(ActivityHelper.Team.EXTRA_TEAM to team)
     }
 
     @Subscribe(threadMode = ThreadMode.MAIN)
